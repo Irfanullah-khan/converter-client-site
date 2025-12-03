@@ -76,7 +76,8 @@ export default function UploadPage() {
     try {
       // Upload
       const uploadRes = await axios.post(
-        "http://localhost:5000/api/upload",
+        // "http://localhost:5000/api/upload",
+        "https://converter-server-site.onrender.com/api/upload",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -102,7 +103,10 @@ export default function UploadPage() {
       setProgress(60); // mid progress
 
       // Convert
-      const convertRes = await axios.post("http://localhost:5000/api/convert", {
+      const convertRes = await axios.post(
+        // "http://localhost:5000/api/convert",
+        "https://converter-server-site.onrender.com/api/convert",
+        {
         filePath: uploadedPath,
         type,
       });
@@ -110,7 +114,9 @@ export default function UploadPage() {
       setStatus("Completed!");
       setProgress(100); // full progress
 
-      setDownloadLink("http://localhost:5000" + convertRes.data.downloadUrl);
+      // setDownloadLink("http://localhost:5000" + convertRes.data.downloadUrl);
+      setDownloadLink("https://converter-server-site.onrender.com" + convertRes.data.downloadUrl);
+
 
       // 🔥 Save history
       const record = {
