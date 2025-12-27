@@ -3,8 +3,10 @@ import Footer from "../components/Footer";
 import Features from "../components/Features";
 import { motion } from "framer-motion";
 import AboutUs from "../components/AboutUs";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -36,16 +38,16 @@ export default function LandingPage() {
             </p>
 
             {/* 🔥 CTA BUTTON */}
-            <motion.a
-              href="/upload"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-block mt-6 px-8 py-3 rounded-lg font-semibold text-white 
-                   bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg 
-                   hover:shadow-blue-300 transition-all"
-            >
-              Start Converting →
-            </motion.a>
+<motion.button
+  onClick={() => navigate("/upload")}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.97 }}
+  className="inline-block mt-6 px-8 py-3 rounded-lg font-semibold text-white 
+             bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg 
+             hover:shadow-blue-300 transition-all"
+>
+  Start Converting →
+</motion.button>
           </motion.div>
 
           {/* 🟣 RIGHT SIDE IMAGE */}
